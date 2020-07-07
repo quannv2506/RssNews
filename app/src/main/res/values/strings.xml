@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">RSS News</string>
+    <string name="vnexpress">VnExpress</string>
+    <string name="vietnamnet">Vietnamnet</string>
+    <string name="dantri">DanTri</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="trang_chu">Trang Chủ</string>
+    <string name="share">Chia sẻ</string>
+    <string name="tag">Đánh dấu</string>
+    <string name="history">Lịch sử</string>
+    <string name="taged">Bài viết đã đánh dấu</string>
+    <string name="xem_them">Xem thêm</string>
+    <string name="home">News</string>
+    <string name="kinh_doanh">Kinh doanh</string>
+    <string name="thoiSu">Thời sự</string>
+    <string name="theGioi">Thế giới</string>
+    <string name="startup">Startup</string>
+    <string name="giaiTri">Giải trí</string>
+    <string name="theThao">Thể thao</string>
+    <string name="phapLuat">Pháp luật</string>
+    <string name="giaoDuc">Giáo dục</string>
+    <string name="sucKhoe">Sức khỏe</string>
+    <string name="doiSong">Đời sống</string>
+    <string name="duLich">Du lịch</string>
+    <string name="khoaHoc">Khoa học</string>
+    <string name="soHoa">Số hóa</string>
+    <string name="xe">Xe</string>
+    <string name="yKien">Ý kiến</string>
+    <string name="tam_su">Tâm sự</string>
+    <string name="cuoi">Cười</string>
+    <string name="lien_quan">Bài viết liên quan</string>
+</resources>

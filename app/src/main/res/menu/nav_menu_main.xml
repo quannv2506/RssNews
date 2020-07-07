@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group>
+        <item android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="@string/home"/>
+
+        <item android:id="@+id/nav_thoiSu"
+            android:icon="@drawable/newspaper"
+            android:title="@string/thoiSu"/>
+
+        <item android:id="@+id/nav_theGioi"
+            android:icon="@drawable/world"
+            android:title="@string/theGioi"/>
+
+        <item android:id="@+id/nav_kinhDoanh"
+            android:icon="@drawable/dollar"
+            android:title="@string/kinh_doanh"/>
+
+        <item android:id="@+id/nav_startup"
+            android:icon="@drawable/startup"
+            android:title="@string/startup"/>
+
+        <item android:id="@+id/nav_giaiTri"
+            android:icon="@drawable/star"
+            android:title="@string/giaiTri"/>
+
+        <item android:id="@+id/nav_theThao"
+            android:icon="@drawable/foolball"
+            android:title="@string/theThao"/>
+
+        <item android:id="@+id/nav_phapLuat"
+            android:icon="@drawable/law"
+            android:title="@string/phapLuat"/>
+
+        <item android:id="@+id/nav_giaoDuc"
+            android:icon="@drawable/education"
+            android:title="@string/giaoDuc"/>
+
+        <item android:id="@+id/nav_sucKhoe"
+            android:icon="@drawable/health"
+            android:title="@string/sucKhoe"/>
+
+        <item android:id="@+id/nav_doiSong"
+            android:icon="@drawable/life"
+            android:title="@string/doiSong"/>
+
+        <item android:id="@+id/nav_duLich"
+            android:icon="@drawable/travel"
+            android:title="@string/duLich"/>
+
+        <item android:id="@+id/nav_khoaHoc"
+            android:icon="@drawable/science"
+            android:title="@string/khoaHoc"/>
+
+        <item android:id="@+id/nav_soHoa"
+            android:icon="@drawable/so_hoa"
+            android:title="@string/soHoa"/>
+
+        <item android:id="@+id/nav_xe"
+            android:icon="@drawable/motor"
+            android:title="@string/xe"/>
+
+        <item android:id="@+id/nav_yKien"
+            android:icon="@drawable/idea"
+            android:title="@string/yKien"/>
+
+        <item android:id="@+id/nav_tamSu"
+            android:icon="@drawable/talk"
+            android:title="@string/tam_su"/>
+
+        <item android:id="@+id/nav_cuoi"
+            android:icon="@drawable/fun"
+            android:title="@string/cuoi"/>
+
+    </group>
+
+    <item android:title="@string/xem_them">
+        <menu>
+            <item android:id="@+id/nav_taged"
+                android:icon="@drawable/tag"
+                android:title="@string/taged" />
+            <item android:id="@+id/nav_history"
+                android:icon="@drawable/historypng"
+                android:title="@string/history" />
+        </menu>
+    </item>
+
+
+</menu>
