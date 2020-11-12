@@ -17,7 +17,7 @@
 
 
         <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/imgNews"
+            android:id="@+id/imgSmall"
             android:scaleType="centerCrop"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_200sdp"
@@ -26,12 +26,12 @@
 
         <TextView
             android:gravity="center"
-            android:id="@+id/tvTitle"
+            android:id="@+id/tvTitleFirst"
             android:layout_marginHorizontal="@dimen/_5sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_below="@id/imgNews"
+            android:layout_below="@id/imgSmall"
             android:text="Title"
             android:textColor="@color/black" />
 
@@ -48,7 +48,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvTitle"
+            android:layout_below="@id/tvTitleFirst"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/_5sdp"
             android:layout_marginBottom="@dimen/_5sdp">
@@ -60,11 +60,11 @@
 <!--                android:src="@drawable/calen" />-->
 
             <TextView
-                android:id="@+id/tvDate"
+                android:id="@+id/tvDateFirst"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:layout_toRightOf="@id/imgNews"
+                android:layout_toRightOf="@id/imgSmall"
                 android:text="Date"
                 android:textSize="@dimen/_8sdp"/>
         </LinearLayout>

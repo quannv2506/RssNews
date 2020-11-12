@@ -23,11 +23,28 @@ public class ReadRSS extends AsyncTask<String, Void, List<News>> {
     List<News> listNews;
     NewsAdapter newsAdapter;
     Context context;
+    RecyclerView recyclerView;
+    RecyclerView recyclerView2;
+
+
+
+    public ReadRSS(List<News> listNews, NewsAdapter newsAdapter, Context context, RecyclerView recyclerView) {
+        this.listNews = listNews;
+        this.newsAdapter = newsAdapter;
+        this.context = context;
+        this.recyclerView = recyclerView;
+    }
+
+//    public ReadRSS(List<News> listNewsCopy, NewsFirstAdapter newsFirstAdapter, RecyclerView recyclerView) {
+//        this.listNewsCopy = listNewsCopy;
+//        this.newsFirstAdapter = newsFirstAdapter;
+//        this.recyclerView = recyclerView;
+//    }
 
     @Override
     protected List<News> doInBackground(String... strings) {
-        listNews = new ArrayList<>();
         try {
+            listNews = new ArrayList<News>();
             org.jsoup.nodes.Document document = Jsoup.connect(strings[0]).get();
             Elements elements = document.select("item");
             News news = null;
@@ -48,8 +65,24 @@ public class ReadRSS extends AsyncTask<String, Void, List<News>> {
     @Override
     protected void onPostExecute(List<News> news) {
         super.onPostExecute(news);
-//        RecyclerView recyclerView = null;
-//        getRecycleView(recyclerView);
+        RecyclerView.LayoutManager layoutManager1 = new LinearLayoutManager(context,
+                LinearLayoutManager.VERTICAL, false);
+        newsAdapter = new NewsAdapter(listNews, context);
+        recyclerView.setLayoutManager(layoutManager1);
+        recyclerView.setAdapter(newsAdapter);
+
+//        listNewsCopy = listNews.subList(0, listNews.size());
+//        RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(context,
+//                LinearLayoutManager.VERTICAL, false);
+//        newsFirstAdapter = new NewsFirstAdapter(listNewsCopy, context);
+//        recyclerView2.setLayoutManager(layoutManager2);
+//        recyclerView2.setAdapter(newsFirstAdapter);
+//        recyclerView2.setNestedScrollingEnabled(false);
+    }
+
+    @Override
+    protected void onProgressUpdate(Void... values) {
+        super.onProgressUpdate(values);
     }
 
     public void getRecycleView(RecyclerView recyclerView){

@@ -6,11 +6,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.example.rssnewsproject.fragment.KinhDoanhFragment;
-import com.example.rssnewsproject.fragment.KinhTeFragment;
-import com.example.rssnewsproject.fragment.QuanSuFragment;
-import com.example.rssnewsproject.fragment.TheGioiFragment;
-import com.example.rssnewsproject.fragment.ThoiSuFragment;
 import com.example.rssnewsproject.fragment.TrangChuFragment;
 
 public class MyAdapter extends FragmentStatePagerAdapter {

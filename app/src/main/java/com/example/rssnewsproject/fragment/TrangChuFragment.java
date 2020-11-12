@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.rssnewsproject.R;
 import com.example.rssnewsproject.adapter.NewsAdapter;
 import com.example.rssnewsproject.adapter.NewsFirstAdapter;
+import com.example.rssnewsproject.classes.ReadRSS;
 import com.example.rssnewsproject.databinding.FragmentTrangChuBinding;
 import com.example.rssnewsproject.model.News;
 
@@ -48,52 +49,14 @@ public class TrangChuFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_trang_chu, container, false);
 
         registerForContextMenu(binding.rvNews);
-        new ReadRSS2().execute("https://vnexpress.net/rss/tin-moi-nhat.rss");
+        if (getArguments() != null){
+            String link = this.getArguments().getString("link");
+            new ReadRSS(listNews, newsAdapter, getContext(), binding.rvNews).execute(link);
+        }
 
         return binding.getRoot();
     }
 
-    private class ReadRSS2 extends AsyncTask<String, Void, List<News>> {
 
-        @Override
-        protected List<News> doInBackground(String... strings) {
-            listNews = new ArrayList<>();
-            try {
-                org.jsoup.nodes.Document document = Jsoup.connect(strings[0]).get();
-                Elements elements = document.select("item");
-                News news = null;
-                for (org.jsoup.nodes.Element element : elements) {
-                    news = new News();
-                    news.setTitle(element.select("title").text());
-                    news.setImg(Jsoup.parse(element.select("description").text()).select("img").attr("src"));
-                    news.setLink(element.select("link").text());
-                    news.setPubDate(element.select("pubDate").text());
-                    listNews.add(news);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return listNews;
-        }
-
-        @Override
-        protected void onPostExecute(List<News> news) {
-            super.onPostExecute(news);
-            listNewsCopy = listNews.subList(1, listNews.size());
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),
-                    LinearLayoutManager.VERTICAL, false);
-            newsAdapter = new NewsAdapter(listNewsCopy, getContext());
-            binding.rvNews.setLayoutManager(layoutManager);
-            binding.rvNews.setAdapter(newsAdapter);
-
-            RecyclerView.LayoutManager layoutManager1 = new LinearLayoutManager(getContext(),
-                    LinearLayoutManager.VERTICAL, false);
-            newsFirstAdapter = new NewsFirstAdapter(listNews, getContext());
-            binding.rvItem1.setLayoutManager(layoutManager1);
-            binding.rvItem1.setAdapter(newsFirstAdapter);
-            binding.rvItem1.setNestedScrollingEnabled(false);
-
-        }
-    }
 
 }

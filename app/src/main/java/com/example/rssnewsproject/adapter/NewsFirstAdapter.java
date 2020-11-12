@@ -30,7 +30,6 @@ public class NewsFirstAdapter extends RecyclerView.Adapter<NewsFirstAdapter.View
 
     private List<News> newsList;
     private Context context;
-    private List<News> listNews;
 
     public NewsFirstAdapter(List<News> newsList, Context context) {
         this.newsList = newsList;
@@ -50,7 +49,12 @@ public class NewsFirstAdapter extends RecyclerView.Adapter<NewsFirstAdapter.View
         News news = newsList.get(0);
         holder.tvTitle.setText(news.title);
         holder.tvDate.setText(news.pubDate);
-        Picasso.with(context).load(news.img).centerCrop().resize(400, 400).into(holder.imgNews);
+        if (news.img == null){
+            holder.imgNews.setImageResource(R.drawable.banner_vnexpress);
+        } else {
+            Picasso.with(context).load(news.img).centerCrop().resize(400, 400).into(holder.imgNews);
+
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,8 +113,8 @@ public class NewsFirstAdapter extends RecyclerView.Adapter<NewsFirstAdapter.View
             super(itemView);
 
             tvTitle = itemView.findViewById(R.id.tvTitle);
-            tvDate = itemView.findViewById(R.id.tvDate);
-            imgNews = itemView.findViewById(R.id.imgNews);
+            tvDate = itemView.findViewById(R.id.tvDateFirst);
+            imgNews = itemView.findViewById(R.id.imgSmall);
 
         }
     }
