@@ -17,7 +17,6 @@ import androidx.fragment.app.Fragment;
 import com.example.rssnewsproject.R;
 import com.example.rssnewsproject.activity.DetailActivity;
 import com.example.rssnewsproject.databinding.FragmentDetailsBinding;
-import com.example.rssnewsproject.databinding.FragmentTheGioiBinding;
 import com.example.rssnewsproject.model.News;
 import com.squareup.picasso.Picasso;
 

@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,8 +23,7 @@ import java.util.List;
 public class DetailActivity extends AppCompatActivity {
 
     private static final String TAG = "DetailActivity";
-    ImageView imgItem;
-    TextView tvTitleItem, tvDescriptionItem, tvContent, tvDateItem;
+    private WebView webView;
     RecyclerView rvNewsCategory;
     List<News> listNews;
     NewsAdapter newsAdapter;
@@ -33,30 +34,14 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        imgItem = findViewById(R.id.imgItem);
-        tvTitleItem = findViewById(R.id.tvTitleItem);
-        tvDescriptionItem = findViewById(R.id.tvDescriptionItem);
-        tvContent = findViewById(R.id.tvContent);
-        tvDateItem = findViewById(R.id.tvDateItem);
+        webView = findViewById(R.id.webView);
         rvNewsCategory = findViewById(R.id.rvNewsCategory);
 
         Intent intent = getIntent();
-        listNews = intent.getParcelableArrayListExtra("list");
-        News newsItem = (News) intent.getParcelableExtra("newItem");
+        webView.loadUrl(intent.getStringExtra("link"));
+        webView.setWebViewClient(new WebViewClient());
+        webView.getSettings().setJavaScriptEnabled(true);
 
-        Picasso.with(this).load(newsItem.img).into(imgItem);
-        tvTitleItem.setText(newsItem.title);
-        tvDateItem.setText(intent.getStringExtra("time"));
-        tvDescriptionItem.setText(intent.getStringExtra("description"));
-        tvContent.setText("\n" + intent.getStringExtra("content"));
-
-
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getBaseContext(),
-                LinearLayoutManager.VERTICAL, false);
-        newsAdapter = new NewsAdapter(listNews, getBaseContext());
-        rvNewsCategory.setLayoutManager(layoutManager);
-        rvNewsCategory.setAdapter(newsAdapter);
-        rvNewsCategory.setNestedScrollingEnabled(false);
     }
 
 }

@@ -6,9 +6,7 @@ import android.os.AsyncTask;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.rssnewsproject.IOnClickLitsener;
 import com.example.rssnewsproject.adapter.NewsAdapter;
-import com.example.rssnewsproject.adapter.NewsFirstAdapter;
 import com.example.rssnewsproject.model.News;
 
 import org.jsoup.Jsoup;

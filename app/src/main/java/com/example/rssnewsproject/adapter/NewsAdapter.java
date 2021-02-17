@@ -1,17 +1,20 @@
 package com.example.rssnewsproject.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rssnewsproject.R;
+import com.example.rssnewsproject.activity.DetailActivity;
 import com.example.rssnewsproject.model.News;
 import com.squareup.picasso.Picasso;
 
@@ -73,6 +76,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
                 Picasso.with(context).load(itemNews.img).resize(100, 80).into(((SmallViewHolder) holder).imgNews);
             }
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("link", newsList.get(position).getLink());
+                context.startActivity(intent);
+            }
+        });
 
     }
 
